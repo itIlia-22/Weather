@@ -15,6 +15,8 @@ import com.example.move.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
+
+
 class WeatherCityFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
@@ -32,9 +34,18 @@ class WeatherCityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.getLiveData().observe(viewLifecycleOwner, Observer { renderData(it) })
-        viewModel.getWeather()
+
+        arguments?.getParcelable<Weather>(BUNDLE_WEATHER)?.let { weather->
+            binding.cityName.text = weather.city.city
+            binding.cityCoordinates.text = String.format(
+                getString(R.string.city_coordinates),
+                weather.city.lat.toString(),
+                weather.city.lon.toString())
+
+            binding.temperatureValue.text = weather.temperature.toString()
+            binding.feelsLikeValue.text = weather.feelsLike.toString()
+
+        }
     }
 
     override fun onCreateView(
@@ -45,44 +56,22 @@ class WeatherCityFragment : Fragment() {
         return binding.root
     }
 
-    private fun renderData(appState: AppState) {
-        when (appState) {
-            is AppState.Success -> {
-                val weather = appState.weatherData
-                binding.loadingLayout.visibility = View.GONE
-                setData(weather)
-                Snackbar.make(binding.mainView, "Success", Snackbar.LENGTH_LONG).show()
-            }
-            is AppState.Loading -> {
-                binding.loadingLayout.visibility = View.VISIBLE
-            }
-            is AppState.Error -> {
-                binding.loadingLayout.visibility = View.GONE
-                Snackbar
-                    .make(binding.mainView, "Error", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Reload") { viewModel.getWeather() }
-                    .show()
 
-            }
 
-        }
-    }
 
-    private fun setData(weather: Weather) {
-        binding.cityName.text = weather.city.city
-        binding.cityCoordinates.text = String.format(
-            getString(R.string.city_coordinates),
-            weather.city.lat.toString(),
-            weather.city.lon.toString())
 
-        binding.temperatureValue.text = weather.temperature.toString()
-        binding.feelsLikeValue.text = weather.feelsLike.toString()
-    }
+
 
     companion object {
+        const val BUNDLE_WEATHER = "weather"
+        fun newInstance(bundle:Bundle): WeatherCityFragment{
+            val fragment = WeatherCityFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
 
-        @JvmStatic
-        fun newInstance() =
-            WeatherCityFragment()
+
+
     }
 }
+

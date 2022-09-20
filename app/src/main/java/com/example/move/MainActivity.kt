@@ -1,8 +1,8 @@
 package com.example.move
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.move.view.WeatherCityFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.example.move.view.WeatherCityListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null){
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container,WeatherCityFragment.newInstance()).addToBackStack("").commit()
+                .replace(R.id.container,WeatherCityListFragment.newInstance()).addToBackStack("").commit()
         }
     }
 }

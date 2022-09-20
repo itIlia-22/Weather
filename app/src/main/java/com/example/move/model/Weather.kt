@@ -1,20 +1,21 @@
 package com.example.move.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
 
-
-
+@Parcelize
 data class Weather(
     val city:CityAndWeather = getDefaultCity(),
     val temperature: Int = 0,
     val feelsLike: Int = 0
 
-)
+):Parcelable
 
 
 fun getDefaultCity() = CityAndWeather("Москва", 55.755826, 37.617299900000035)
 
-fun getWorldCities()= listOf(
+fun getWorldCities(): List<Weather> = listOf(
     Weather(CityAndWeather("Лондон", 51.5085300, -0.1257400), 1, 2),
     Weather(CityAndWeather("Токио", 35.6895000, 139.6917100), 3, 4),
     Weather(CityAndWeather("Париж", 48.8534100, 2.3488000), 5, 6),
@@ -28,7 +29,7 @@ fun getWorldCities()= listOf(
 )
 
 
-fun getRussianCities()= listOf(
+fun getRussianCities():List<Weather> = listOf(
     Weather(CityAndWeather("Москва", 55.755826, 37.617299900000035), 1, 2),
     Weather(CityAndWeather("Санкт-Петербург", 59.9342802, 30.335098600000038), 3, 3),
     Weather(CityAndWeather("Новосибирск", 55.00835259999999, 82.93573270000002), 5, 6),
