@@ -2,8 +2,8 @@ package com.example.move.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.move.model.Repository
-import com.example.move.model.RepositoryImpl
+import com.example.move.repository.Repository
+import com.example.move.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
 open class MainViewModel(
@@ -13,9 +13,6 @@ open class MainViewModel(
 
 
     fun getLiveData() = liveDataToObserver
-    fun getWeather() = getDataFromLocalSource(isRussian = false)
-
-
     fun getWeatherFromLocalRus() = getDataFromLocalSource(isRussian = true)
     fun getWeatherFromLocalWorld() = getDataFromLocalSource(isRussian = false)
 

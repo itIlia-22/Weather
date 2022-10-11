@@ -1,34 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/grafob"
+    android:clickable="true"
+    android:focusable="true">
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mainView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <TextView
-        android:id="@+id/cityName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/city_name_margin_top"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Москва" />
+            android:id="@+id/season"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:text="@string/season"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/CloudIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="70dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/season" />
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/city_name_margin_top"
+            android:textSize="@dimen/TextSizeCity"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/CloudIcon"
+            tools:text="Москва" />
+
         <TextView
             android:id="@+id/cityCoordinates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:text="Sunny"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cityName"
-            tools:text="lt/ln: 55.755826, 37.617299900000035" />
+            tools:ignore="UnknownId" />
+
         <TextView
             android:id="@+id/temperatureLabel"
             android:layout_width="wrap_content"
@@ -38,6 +70,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cityCoordinates" />
+
         <TextView
             android:id="@+id/temperatureValue"
             android:layout_width="wrap_content"
@@ -49,6 +82,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/temperatureLabel"
             tools:text="+15" />
+
         <TextView
             android:id="@+id/feelsLikeLabel"
             android:layout_width="wrap_content"
@@ -69,9 +103,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/feelsLikeLabel"
-            tools:text="-23"
-            tools:ignore="SpUsage" />
+            tools:text="-23" />
+
+        <TextView
+            android:id="@+id/s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15_dp"
+            android:textSize="@dimen/feels_like_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/feelsLikeValue"
+            tools:text="Sunny" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <include
+        android:id="@+id/btnSheet"
+        layout="@layout/bottom_sheet_weather" />
+
     <FrameLayout
         android:id="@+id/loadingLayout"
         android:layout_width="match_parent"
@@ -85,4 +139,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
     </FrameLayout>
-</FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

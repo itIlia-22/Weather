@@ -10,5 +10,11 @@
     <dimen name="recycler_item_text_size">25sp</dimen>
     <dimen name="recycler_item_line_height">1dp</dimen>
     <dimen name="recycler_item_line_margin_end">20dp</dimen>
+    <dimen name="main_container_text_size">10dp</dimen>
+    <dimen name="margin_5_dp">5dp</dimen>
+    <dimen name="View_bottom_sheet">25dp</dimen>
+    <dimen name="height_bottom_sheet">1dp</dimen>
+    <dimen name="marginTop_bottom_sheet">5dp</dimen>
+    <dimen name="TextSizeCity">35sp</dimen>
 
 </resources>

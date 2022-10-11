@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Public/Move/app/src/main/res/drawable/but.xml" value="0.192" />
         <entry key="..\:/Users/Public/Move/app/src/main/res/drawable/earth_city.xml" value="0.119" />
         <entry key="..\:/Users/Public/Move/app/src/main/res/drawable/rus.xml" value="0.1465" />
         <entry key="..\:/Users/Public/Move/app/src/main/res/layout/activity_main.xml" value="0.18659420289855072" />
-        <entry key="..\:/Users/Public/Move/app/src/main/res/layout/fragment_weather_city.xml" value="0.18659420289855072" />
+        <entry key="..\:/Users/Public/Move/app/src/main/res/layout/bottom_sheet_weather.xml" value="0.2" />
+        <entry key="..\:/Users/Public/Move/app/src/main/res/layout/fragment_details_city.xml" value="0.152" />
+        <entry key="..\:/Users/Public/Move/app/src/main/res/layout/fragment_test_theard.xml" value="0.18659420289855072" />
+        <entry key="..\:/Users/Public/Move/app/src/main/res/layout/fragment_weather_city.xml" value="0.29675425038639874" />
         <entry key="..\:/Users/Public/Move/app/src/main/res/layout/fragment_weather_city_list.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/Public/Move/app/src/main/res/layout/item_list_city.xml" value="0.18659420289855072" />
+        <entry key="..\:/Users/Public/Move/app/src/main/res/menu/test_thread.xml" value="0.25" />
       </map>
     </option>
   </component>

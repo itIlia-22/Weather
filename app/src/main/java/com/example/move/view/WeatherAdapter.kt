@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.move.databinding.ItemListCityBinding
 import com.example.move.model.Weather
 import com.example.move.repository.ItemOnClickListener
+import com.example.move.utils.show
 
 class WeatherAdapter(
     private var itemOnClickListener: ItemOnClickListener?
