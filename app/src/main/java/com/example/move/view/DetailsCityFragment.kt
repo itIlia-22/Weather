@@ -17,23 +17,16 @@ import com.example.move.R
 import com.example.move.databinding.FragmentDetailsCityBinding
 import com.example.move.detailsviewmodel.DetailsState
 import com.example.move.detailsviewmodel.DetailsViewModel
+import com.example.move.model.City
 import com.example.move.model.Weather
 import com.example.move.utils.detailsSnackBar
 import com.example.move.utils.hide
 import com.example.move.utils.show
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.bottom_sheet_weather.*
-import kotlinx.android.synthetic.main.bottom_sheet_weather.view.*
-import kotlinx.android.synthetic.main.fragment_details_city.*
-import kotlinx.android.synthetic.main.fragment_weather_city_list.view.*
 
 
 class DetailsCityFragment : Fragment() {
 
-    private val viewModel: DetailsViewModel by lazy {
-        val detailsViewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
-        detailsViewModel
-    }
 
     private var _binding: FragmentDetailsCityBinding? = null
     private val binding: FragmentDetailsCityBinding
@@ -44,6 +37,12 @@ class DetailsCityFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+
+    private val viewModel: DetailsViewModel by lazy {
+        val detailsViewModel = ViewModelProvider(this)[DetailsViewModel::class.java]
+        detailsViewModel
     }
 
 
@@ -121,14 +120,20 @@ class DetailsCityFragment : Fragment() {
 
             }
             is DetailsState.Loading -> {
-                loadingLayout.hide()
-                mainView.show()
+                with(binding) {
+                    includedLoadingLayout.loadingLayout.hide()
+                    mainView.show()
+                }
+
 
             }
             is DetailsState.Error -> {
-                mainView.show()
-                loadingLayout.hide()
-                mainView.detailsSnackBar(getString(R.string.something_went_wrong))
+                with(binding) {
+                    mainView.show()
+                    includedLoadingLayout.loadingLayout.hide()
+                    mainView.detailsSnackBar(getString(R.string.something_went_wrong))
+                }
+
             }
 
         }
@@ -144,6 +149,27 @@ class DetailsCityFragment : Fragment() {
         }
 
 
+    }
+
+    private fun setWeather(weather: Weather) {
+        val city = weather.city
+        saveCity(city, weather)
+
+    }
+
+    private fun saveCity(
+        city: City,
+        weather: Weather,
+    ) {
+        viewModel.saveCityToBD(
+            Weather(
+                city,
+                weather.temperature,
+                weather.feelsLike,
+                weather.condition,
+                weather.icon
+            )
+        )
     }
 
 

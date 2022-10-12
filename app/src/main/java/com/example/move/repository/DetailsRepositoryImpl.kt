@@ -1,11 +1,14 @@
 package com.example.move.repository
 
 import com.example.move.BuildConfig
-import com.example.move.model.City
-import com.example.move.model.modelDTO.WeatherDto
 import com.example.move.detailsviewmodel.DetailsState
 import com.example.move.detailsviewmodel.DetailsViewModel
-import com.example.move.utils.*
+import com.example.move.model.City
+import com.example.move.model.modelDTO.WeatherDto
+import com.example.move.utils.KEY_YANDEX_DOMEN
+import com.example.move.utils.REQUEST_ERROR
+import com.example.move.utils.SERVER_ERROR
+import com.example.move.utils.convertDtoToModel
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -15,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class DetailsRepositoryImpl() : DetailsRepository {
     override fun getWeatherCityFromServer(
         city: City,
-        callback: DetailsViewModel.Callbak,
+        callback: DetailsViewModel.Callback,
     ) {
         val weatherApi = Retrofit.Builder().apply {
             baseUrl(KEY_YANDEX_DOMEN)

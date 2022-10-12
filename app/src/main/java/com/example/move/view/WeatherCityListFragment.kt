@@ -1,29 +1,33 @@
 package com.example.move.view
 
+import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.move.R
+import com.example.move.adapters.WeatherAdapter
 import com.example.move.databinding.FragmentWeatherCityListBinding
 import com.example.move.model.Weather
 import com.example.move.repository.ItemOnClickListener
+import com.example.move.utils.IS_WORLD_KEY
 import com.example.move.utils.hide
 import com.example.move.utils.show
 import com.example.move.utils.showSnackBar
 import com.example.move.viewmodel.AppState
 import com.example.move.viewmodel.MainViewModel
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_weather_city_list.*
-import retrofit2.Response.error
-import test.TestThreadFragment
+import kotlinx.android.synthetic.main.loading_fragments.*
+import kotlinx.android.synthetic.main.loading_fragments.view.*
 
 
 class WeatherCityListFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
-    private var isDataSetRus: Boolean = true
+    private var isDataSetRus: Boolean = false
     private var _binding: FragmentWeatherCityListBinding? = null
     private val binding: FragmentWeatherCityListBinding
         get() {
@@ -46,9 +50,21 @@ class WeatherCityListFragment : Fragment() {
             renderData(it)
         })
         viewModel.getWeatherFromLocalRus()
-
+        showListCity()
 
     }
+
+    private fun showListCity() {
+        requireActivity().let {
+            if (it.getPreferences(Context.MODE_PRIVATE).getBoolean(IS_WORLD_KEY, false)) {
+                changeWeatherDataSet()
+            } else {
+                viewModel.getWeatherFromLocalRus()
+            }
+        }
+
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -76,27 +92,37 @@ class WeatherCityListFragment : Fragment() {
 
     private fun changeWeatherDataSet() {
         if (isDataSetRus) {
-            viewModel.getWeatherFromLocalWorld()
-            binding.FragmentFAB.setImageResource(R.drawable.earth_city)
-        } else {
             viewModel.getWeatherFromLocalRus()
             binding.FragmentFAB.setImageResource(R.drawable.rus)
+        } else {
+            viewModel.getWeatherFromLocalWorld()
+            binding.FragmentFAB.setImageResource(R.drawable.earth_city)
         }
 
         isDataSetRus = !isDataSetRus
+        saveListCity(isDataSetRus)
+    }
+
+    private fun saveListCity(isDataSetRus: Boolean) {
+        with(requireActivity().getPreferences(Context.MODE_PRIVATE).edit()) {
+            putBoolean(IS_WORLD_KEY, isDataSetRus)
+            apply()
+        }
+
     }
 
     private fun renderData(appState: AppState) {
         when (appState) {
             is AppState.Success -> {
-                binding.FragmentLoadingLayout.hide()
+            binding.includedLoadingLayout.loadingLayout.hide()
                 adapter.setWeather(appState.weatherData)
             }
             is AppState.Loading -> {
-                 binding.FragmentLoadingLayout.show()
+                binding.includedLoadingLayout.loadingLayout.show()
+                binding.includedLoadingLayout.loadingLayout.hide()
             }
             is AppState.Error -> {
-                binding.FragmentLoadingLayout.hide()
+                binding.includedLoadingLayout.loadingLayout.hide()
                 expMain.showSnackBar(
                     getString(R.string.error),
                     getString(R.string.reload),
@@ -113,8 +139,6 @@ class WeatherCityListFragment : Fragment() {
         fun newInstance() =
             WeatherCityListFragment()
     }
-
-
 
 
 }

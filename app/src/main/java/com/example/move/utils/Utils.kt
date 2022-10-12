@@ -1,11 +1,13 @@
 package com.example.move.utils
 
 import android.view.View
+import com.example.move.model.City
 import com.example.move.model.Weather
 import com.example.move.model.getDefaultCity
 import com.example.move.model.modelDTO.Fact
 import com.example.move.model.modelDTO.Forecast
 import com.example.move.model.modelDTO.WeatherDto
+import com.example.move.model.romm.HistoryEntity
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -19,6 +21,20 @@ fun convertDtoToModel(weatherDto: WeatherDto): Weather {
         forecast.sunset!!, forecast.moonCode!!))
 }
 
+fun convertHistoryToWeather(entityList: List<HistoryEntity>): List<Weather> {
+    return entityList.map {
+        Weather(City(it.city, 0.0, 0.0), it.temperature, it.feelsLike, it.condition, it.icon)
+    }
+}
+
+fun convertWeatherToHistory(weather: Weather): HistoryEntity {
+    return HistoryEntity(0,
+        weather.city.city,
+        weather.temperature,
+        weather.feelsLike,
+        weather.condition,
+        weather.icon)
+}
 
 fun View.showSnackBar(
     text: String,
