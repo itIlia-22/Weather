@@ -1,4 +1,4 @@
-package com.example.move.repository
+package com.example.move.history.historyviewmodel.repository
 
 import com.example.move.detailsviewmodel.DetailsViewModel
 import com.example.move.history.historyviewmodel.HistoryViewModel

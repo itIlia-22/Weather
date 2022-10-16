@@ -2,6 +2,8 @@ package com.example.move.detailsviewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.move.history.historyviewmodel.repository.HistoryRepositoryAdd
+import com.example.move.history.historyviewmodel.repository.HistoryRepositoryImpl
 import com.example.move.model.City
 import com.example.move.model.Weather
 import com.example.move.repository.*

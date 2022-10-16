@@ -1,6 +1,9 @@
 package com.example.move.utils
 
 import android.view.View
+import android.widget.ImageView
+import coil.ImageLoader
+import coil.decode.SvgDecoder
 import com.example.move.model.City
 import com.example.move.model.Weather
 import com.example.move.model.getDefaultCity
@@ -34,6 +37,19 @@ fun convertWeatherToHistory(weather: Weather): HistoryEntity {
         weather.feelsLike,
         weather.condition,
         weather.icon)
+}
+
+fun ImageView.loadSvg(url: String) {
+    val imageLoader = ImageLoader.Builder(this.context)
+        .componentRegistry { add(SvgDecoder(this@loadSvg.context)) }
+        .build()
+    val imageRequest = coil.request.ImageRequest.Builder(this.context)
+        .crossfade(true)
+        .crossfade(500)
+        .data(url)
+        .target(this)
+        .build()
+    imageLoader.enqueue(imageRequest)
 }
 
 fun View.showSnackBar(

@@ -16,6 +16,6 @@ interface HistoryDao {
     @Update
     fun update(entity: HistoryEntity)
 
-    @Update
+    @Delete
     fun delete(entity: HistoryEntity)
 }

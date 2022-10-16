@@ -26,7 +26,7 @@ open class App : Application() {
                 if (db == null) {
                     if (null != appInstance) {
                         db = Room.databaseBuilder(appInstance!!.applicationContext, HistoryDataBase::class.java, "1")
-                            .allowMainThreadQueries()
+                            //.allowMainThreadQueries()
                             .build()
 
                     }

@@ -3,8 +3,8 @@ package com.example.move.history.historyviewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.move.model.Weather
-import com.example.move.repository.HistoryRepository
-import com.example.move.repository.HistoryRepositoryImpl
+import com.example.move.history.historyviewmodel.repository.HistoryRepositoryImpl
+import com.example.move.model.romm.HistoryEntity
 import com.example.move.viewmodel.AppState
 
 class HistoryViewModel(
@@ -23,6 +23,10 @@ class HistoryViewModel(
 
        })
     }
+
+
+
+
 
 
     interface Callback {

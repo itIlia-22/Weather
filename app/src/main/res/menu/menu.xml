@@ -7,4 +7,10 @@
     app:showAsAction="always"
     android:icon="@drawable/ic_baseline_history_24"
 />
+    <item
+        android:id="@+id/menu_google_maps"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/google_maps"
+        app:showAsAction="always" />
+
 </menu>

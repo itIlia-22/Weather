@@ -4,18 +4,19 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import coil.ImageLoader
-import coil.decode.SvgDecoder
 import com.example.move.databinding.ItemListHistoryBinding
+import com.example.move.history.historyviewmodel.repository.OnDeleteClickListener
 import com.example.move.model.Weather
+import com.example.move.model.romm.HistoryEntity
+import com.example.move.utils.loadSvg
 
 class HistoryWeatherAdapter(
 
 ) : RecyclerView.Adapter<HistoryWeatherAdapter.CityViewHolder>() {
 
     private var weatherData: List<Weather> = listOf()
+
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -32,6 +33,7 @@ class HistoryWeatherAdapter(
 
     override fun onBindViewHolder(holder: CityViewHolder, position: Int) {
         holder.bind(weatherData[position])
+
     }
 
     override fun getItemCount(): Int = weatherData.size
@@ -48,18 +50,9 @@ class HistoryWeatherAdapter(
 
         }
 
+
+
     }
 
-    fun ImageView.loadSvg(url: String) {
-        val imageLoader = ImageLoader.Builder(this.context)
-            .componentRegistry { add(SvgDecoder(this@loadSvg.context)) }
-            .build()
-        val imageRequest = coil.request.ImageRequest.Builder(this.context)
-            .crossfade(true)
-            .crossfade(500)
-            .data(url)
-            .target(this)
-            .build()
-        imageLoader.enqueue(imageRequest)
-    }
+
 }

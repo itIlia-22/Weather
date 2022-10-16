@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Weather</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="temperature_label">Температура</string>
-    <string name="feels_like_label">Ощущается как</string>
-    <string name="city_coordinates">lt/ln: %s, %s"</string>
-    <string name="error">errro</string>
-    <string name="reload">erg</string>
+    <string name="app_name" translatable="false">Weather</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="temperature_label" translatable="false">Температура</string>
+    <string name="feels_like_label" translatable="false">Ощущается как</string>
+    <string name="city_coordinates" translatable="false">lt/ln: %s, %s"</string>
+    <string name="error" translatable="false">errro</string>
+    <string name="reload" translatable="false">erg</string>
 
     <string name="something_went_wrong">что-то пошло не так</string>
-    <string name="season">summer</string>
+    <string name="season" translatable="false">summer</string>
     <string name="wind_dir">Направление ветра</string>
     <string name="dir">1.2</string>
     <string name="dayTime">Время суток</string>
@@ -19,5 +19,22 @@
     <string name="por">Скорость порывов ветра(в м/с)</string>
     <string name="voz">Влажность воздуха</string>
     <string name="o">Oблачно</string>
+    <string name="Delete">Удалить</string>
+    <string name="dialog_button_close">Закрыть</string>
+    <string name="dialog_title_no_gps">Доступ к геолокации закрыт</string>
+    <string name="dialog_message_no_gps">Разрешите доступ к геолокации, если хотите
+узнать погоду текущего места</string>
+    <string name="dialog_title_gps_turned_off">GPS отключён</string>
+    <string name="dialog_message_last_location_unknown">Местонахождение неизвестно.
+Включите GPS, если хотите получить погоду по текущему адресу</string>
+    <string name="dialog_message_last_known_location">Показана последняя известная
+локация. Включите GPS, если хотите обновить местонахождение</string>
+    <string name="dialog_rationale_title">Доступ к геолокации</string>
+    <string name="dialog_rationale_meaasge">Объяснение</string>
+    <string name="dialog_rationale_give_access">Предоставить доступ</string>
+    <string name="dialog_rationale_decline">Не надо</string>
+    <string name="dialog_address_title">Ваш адрес</string>
+    <string name="dialog_address_get_weather">Узнать погоду</string>
+    <string name="google_maps">google_maps</string>
 
 </resources>

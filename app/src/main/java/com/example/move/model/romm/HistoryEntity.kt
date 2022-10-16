@@ -12,4 +12,6 @@ data class HistoryEntity(
     val feelsLike: Int,
     val condition: String,
     val icon:String
-)
+) {
+
+}

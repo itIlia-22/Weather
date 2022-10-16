@@ -17,7 +17,6 @@ import com.example.move.R
 import com.example.move.databinding.FragmentDetailsCityBinding
 import com.example.move.detailsviewmodel.DetailsState
 import com.example.move.detailsviewmodel.DetailsViewModel
-import com.example.move.model.City
 import com.example.move.model.Weather
 import com.example.move.utils.detailsSnackBar
 import com.example.move.utils.hide
@@ -149,27 +148,6 @@ class DetailsCityFragment : Fragment() {
         }
 
 
-    }
-
-    private fun setWeather(weather: Weather) {
-        val city = weather.city
-        saveCity(city, weather)
-
-    }
-
-    private fun saveCity(
-        city: City,
-        weather: Weather,
-    ) {
-        viewModel.saveCityToBD(
-            Weather(
-                city,
-                weather.temperature,
-                weather.feelsLike,
-                weather.condition,
-                weather.icon
-            )
-        )
     }
 
 

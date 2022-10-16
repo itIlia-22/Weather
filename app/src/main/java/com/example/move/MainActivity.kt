@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.move.history.historyviewmodel.view.HistoryFragment
 import com.example.move.view.WeatherCityListFragment
+import com.example.move.view.map.MapsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,19 +33,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+        when (item.itemId) {
             R.id.historyMenu -> {
                 supportFragmentManager.apply {
                     beginTransaction()
-                        .add(R.id.container, HistoryFragment.newInstance())
+                        .replace(R.id.container, HistoryFragment.newInstance())
                         .addToBackStack("")
                         .commitAllowingStateLoss()
                 }
 
-                true
+
             }
-            else -> super.onOptionsItemSelected(item)
+
+            R.id.menu_google_maps -> {
+                supportFragmentManager.apply {
+                    beginTransaction()
+                        .replace(R.id.container, MapsFragment())
+                        .addToBackStack("")
+                        .commitAllowingStateLoss()
+
+                }
+            }
+
         }
+        return super.onOptionsItemSelected(item)
     }
 
 }
