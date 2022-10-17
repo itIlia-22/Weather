@@ -15,8 +15,8 @@ import coil.ImageLoader
 import coil.decode.SvgDecoder
 import com.example.move.R
 import com.example.move.databinding.FragmentDetailsCityBinding
-import com.example.move.detailsviewmodel.DetailsState
-import com.example.move.detailsviewmodel.DetailsViewModel
+import com.example.move.viewmodel.detailsviewmodel.DetailsState
+import com.example.move.viewmodel.detailsviewmodel.DetailsViewModel
 import com.example.move.model.Weather
 import com.example.move.utils.detailsSnackBar
 import com.example.move.utils.hide

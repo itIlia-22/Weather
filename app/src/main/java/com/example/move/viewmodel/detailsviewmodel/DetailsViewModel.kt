@@ -1,4 +1,4 @@
-package com.example.move.detailsviewmodel
+package com.example.move.viewmodel.detailsviewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

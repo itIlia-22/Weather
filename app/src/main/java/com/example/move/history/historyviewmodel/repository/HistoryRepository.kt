@@ -1,6 +1,6 @@
 package com.example.move.history.historyviewmodel.repository
 
-import com.example.move.detailsviewmodel.DetailsViewModel
+import com.example.move.viewmodel.detailsviewmodel.DetailsViewModel
 import com.example.move.model.City
 
 interface HistoryRepository {

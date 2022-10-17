@@ -1,8 +1,8 @@
 package com.example.move.repository
 
 import com.example.move.BuildConfig
-import com.example.move.detailsviewmodel.DetailsState
-import com.example.move.detailsviewmodel.DetailsViewModel
+import com.example.move.viewmodel.detailsviewmodel.DetailsState
+import com.example.move.viewmodel.detailsviewmodel.DetailsViewModel
 import com.example.move.model.City
 import com.example.move.model.modelDTO.WeatherDto
 import com.example.move.utils.KEY_YANDEX_DOMEN

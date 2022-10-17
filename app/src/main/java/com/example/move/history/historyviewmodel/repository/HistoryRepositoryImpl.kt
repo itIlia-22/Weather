@@ -1,12 +1,10 @@
 package com.example.move.history.historyviewmodel.repository
 
 import com.example.move.app.App
-import com.example.move.detailsviewmodel.DetailsViewModel
+import com.example.move.viewmodel.detailsviewmodel.DetailsViewModel
 import com.example.move.history.historyviewmodel.HistoryViewModel
 import com.example.move.model.City
 import com.example.move.model.Weather
-import com.example.move.model.romm.HistoryDao
-import com.example.move.model.romm.HistoryEntity
 import com.example.move.utils.convertHistoryToWeather
 import com.example.move.utils.convertWeatherToHistory
 

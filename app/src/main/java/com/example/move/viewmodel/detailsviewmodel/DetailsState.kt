@@ -1,4 +1,4 @@
-package com.example.move.detailsviewmodel
+package com.example.move.viewmodel.detailsviewmodel
 
 import com.example.move.model.Weather
 

@@ -36,5 +36,13 @@
     <string name="dialog_address_title">Ваш адрес</string>
     <string name="dialog_address_get_weather">Узнать погоду</string>
     <string name="google_maps">google_maps</string>
+    <string name="default_address">Red Square, 1, Moscow</string>
+    <string name="button_search_map">Search</string>
+    <string name="marker_start">Start</string>
+    <string name="Invalid_addressTwo">Вы нажали на пустое поле </string>
+    <string name="Exact_addressTwo">Пожалуйста, нажмите на континент</string>
+    <string name="Ok">Хорошо</string>
+    <string name="yuoCity">Ваш город…</string>
+
 
 </resources>
